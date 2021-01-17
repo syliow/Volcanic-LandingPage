@@ -1,0 +1,537 @@
+body {
+    font-family: "Roboto";
+}
+
+
+/* Basic styling */
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+nav {
+    padding: 5px 20px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+}
+
+.logo a:hover {
+    text-decoration: none;
+}
+
+.menu li {
+    font-size: 16px;
+    padding: 15px 5px;
+    white-space: nowrap;
+}
+
+.logo a,
+.toggle a {
+    font-size: 20px;
+}
+
+
+/* Navigation Bar Hover */
+
+nav ul li a,
+nav ul li a:after,
+nav ul li a:before {
+    transition: all 0.5s;
+}
+
+nav ul li a:hover {
+    color: #e67c28;
+}
+
+nav.stroke ul li a,
+nav.fill ul li a {
+    position: relative;
+}
+
+nav.stroke ul li a:after,
+nav.fill ul li a:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 0%;
+    content: ".";
+    color: transparent;
+    background: #e67c28;
+    height: 1px;
+}
+
+nav.stroke ul li a:hover:after {
+    width: 100%;
+}
+
+nav.fill ul li a {
+    transition: all 2s;
+}
+
+nav.fill ul li a:after {
+    text-align: left;
+    content: ".";
+    margin: 0;
+    opacity: 0;
+}
+
+nav.fill ul li a:hover {
+    color: #fff;
+    z-index: 1;
+}
+
+nav.fill ul li a:hover:after {
+    z-index: -10;
+    animation: fill 1s forwards;
+    -webkit-animation: fill 1s forwards;
+    -moz-animation: fill 1s forwards;
+    opacity: 1;
+}
+
+
+/* Mobile menu */
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toggle {
+    order: 1;
+}
+
+.item.button {
+    order: 2;
+}
+
+.item {
+    width: 100%;
+    text-align: center;
+    order: 3;
+    display: none;
+}
+
+.item.active {
+    display: block;
+}
+
+
+/* Navbar Toggle */
+
+.toggle {
+    cursor: pointer;
+}
+
+.bars {
+    background: #e67c28;
+    display: inline-block;
+    height: 2px;
+    position: relative;
+    transition: background 0.2s ease-out;
+    width: 18px;
+}
+
+.bars:before,
+.bars:after {
+    background: #e67c28;
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all 0.2s ease-out;
+    width: 100%;
+}
+
+.bars:before {
+    top: 5px;
+}
+
+.bars:after {
+    top: -5px;
+}
+
+
+/* Tablet menu */
+
+@media all and (min-width: 468px) {
+    .menu {
+        justify-content: center;
+    }
+    .logo {
+        flex: 1;
+    }
+    .item.button {
+        width: auto;
+        order: 1;
+        display: block;
+    }
+    .toggle {
+        order: 2;
+    }
+    .button.secondary {
+        border: 0;
+    }
+    .button a {
+        padding: 7.5px 15px;
+        background: #e67c28;
+    }
+    .button a:hover {
+        background: #fff;
+    }
+    .button.secondary a:hover {
+        color: #ddd;
+    }
+}
+
+
+/* Desktop menu */
+
+@media all and (min-width: 768px) {
+    .item {
+        display: block;
+        width: auto;
+    }
+    .toggle {
+        display: none;
+    }
+    .logo {
+        order: 0;
+    }
+    .item {
+        order: 1;
+    }
+    .button {
+        order: 2;
+    }
+    .menu li {
+        padding: 15px 10px;
+    }
+    .menu li.button {
+        padding-right: 0;
+    }
+}
+
+
+/* Below Navbar */
+
+.arrows {
+    color: white;
+}
+
+.arrows a:hover {
+    color: #e67c28;
+}
+
+.header {
+    height: auto;
+    background-image: url(../img/cover.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+h1 {
+    color: white;
+    font-size: 60px;
+}
+
+.bar {
+    margin-top: 300px;
+}
+
+.bar span,
+p {
+    color: white;
+}
+
+.about-us {
+    background-image: url(../img/about-us.jpg);
+    /* background-size:100% auto;
+    background-repeat: no-repeat; */
+    background-position: center;
+    background-size: cover;
+}
+
+.layer {
+    background-color: rgba(0, 0, 0, 0.7);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.about-us p {
+    color: white;
+    margin-top: 50px;
+}
+
+
+/* Buttons and Cards */
+
+.about-card {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.job-card {
+    background-color: #e67c28;
+    border-radius: 0;
+}
+
+.btn-apply {
+    background-color: lightgray;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-radius: 0;
+}
+
+.btn-read {
+    background-color: #e67c28;
+    border-radius: 0;
+}
+
+.btn-work {
+    background: white;
+    border-radius: 0%;
+}
+
+.card:hover {
+    background-color: lightgray;
+}
+
+.card:hover .card-title {
+    color: #e67c28;
+}
+
+.card:hover .btn-apply {
+    background-color: #e67c28;
+    color: white;
+}
+
+.card:hover p {
+    color: rgba(0, 0, 0, 0.507);
+}
+
+.card h5,
+p {
+    color: white;
+}
+
+.employee h5 {
+    color: #e67c28;
+}
+
+
+/* Lighthouse  */
+
+.hover12 figure {
+    background: rgb(232, 111, 15);
+    background: linear-gradient( 0deg, rgba(232, 111, 15, 1) 0%, rgba(247, 109, 0, 1) 37%, rgba(232, 111, 15, 0.1825105042016807) 98%);
+}
+
+.hover12 figure img {
+    opacity: 1;
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+}
+
+.hover12 figure:hover img {
+    opacity: 0.5;
+}
+
+.image a:hover {
+    display: block;
+}
+
+
+/* Footer */
+
+footer {
+    background: #3b3f4a;
+    margin-top: 100px;
+}
+
+footer a {
+    color: #fff;
+    font-size: 14px;
+    transition-duration: 0.2s;
+}
+
+footer a:hover {
+    color: #e67c28;
+    text-decoration: none;
+}
+
+.footer-middle {
+    padding-top: 2em;
+    color: white;
+}
+
+
+/* Footer social icons */
+
+ul.social-network {
+    list-style: none;
+    display: inline;
+    margin-left: 0 !important;
+    padding: 0;
+}
+
+ul.social-network li {
+    display: inline;
+    margin: 0 5px;
+}
+
+.social-network a {
+    background-color: #7d8496;
+}
+
+.social-network a:hover {
+    background-color: #e67c28;
+}
+
+.social-circle li a {
+    display: inline-block;
+    position: relative;
+    margin: 0 auto 0 auto;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+}
+
+.social-circle li i {
+    margin: 0;
+    line-height: 30px;
+    text-align: center;
+}
+
+.social-circle i {
+    color: white;
+    -webkit-transition: all 0.8s;
+    -moz-transition: all 0.8s;
+    -o-transition: all 0.8s;
+    -ms-transition: all 0.8s;
+    transition: all 0.8s;
+}
+
+.work-card {
+    background: #e67c28;
+}
+
+.image {
+    position: relative;
+    width: 400px;
+}
+
+.image__img {
+    display: block;
+    width: 100%;
+}
+
+
+/* Latest Insights (LightBox) */
+
+.content {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.content .content-overlay {
+    background: rgb(232, 111, 15);
+    background: linear-gradient( 0deg, rgb(240, 134, 48) 0%, rgba(247, 109, 0, 1) 37%, rgba(232, 111, 15, 0.1825105042016807) 98%);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    -webkit-transition: all 0.4s ease-in-out 0s;
+    -moz-transition: all 0.4s ease-in-out 0s;
+    transition: all 0.4s ease-in-out 0s;
+}
+
+.content:hover .content-overlay {
+    opacity: 0.7;
+}
+
+.content-image {
+    width: 100%;
+}
+
+.content-details {
+    position: absolute;
+    text-align: center;
+    padding-left: 1em;
+    padding-right: 1em;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -moz-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.content:hover .content-details {
+    top: 50%;
+    left: 50%;
+    opacity: 1;
+}
+
+.content-details h3 {
+    color: #fff;
+    font-weight: 400;
+    text-align: left;
+}
+
+.content-details p {
+    color: #fff;
+    font-size: 0.8em;
+    text-align: left;
+}
+
+.fadeIn-bottom {
+    top: 80%;
+}
